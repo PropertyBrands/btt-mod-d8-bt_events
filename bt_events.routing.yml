@@ -1,0 +1,7 @@
+bt_events.config:
+  path: '/admin/config/content/events'
+  defaults:
+    _form: '\Drupal\bt_events\Form\EventsConfigForm'
+    _title: 'Configure Events'
+  requirements:
+    _permission: 'access administration pages'

@@ -1,0 +1,22 @@
+uuid: 8cab83d6-c6ec-4614-8900-ceefcc4182ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_dates
+    - node.type.bt_event
+  module:
+    - datetime
+id: node.bt_event.field_event_dates
+field_name: field_event_dates
+entity_type: node
+bundle: bt_event
+label: 'Event Dates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: datetime

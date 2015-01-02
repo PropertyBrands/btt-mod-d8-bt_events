@@ -1,0 +1,32 @@
+<?php
+/**
+ * Implements hook_cron
+ */
+function bt_events_cron() {
+  $cleanup = \Drupal::config('bt_events.config')->get('events_cron_clean_up', 0);
+  if($cleanup) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'bt_event', '=');
+    $result = $query->execute();
+    if(!empty($result)) {
+      $nodes = entity_load_multiple('node', $result);
+      foreach($nodes as $node) {
+        $keep = FALSE;
+        foreach($node->get('field_event_dates') as $i) {
+          if(strtotime($i->value) > time()) {
+            $keep = TRUE;
+          }
+        }
+        if(!$keep) {
+          $node->status = 0;
+          $node->save();
+          $level = \Drupal\Core\Logger\RfcLogLevel::NOTICE;
+          $logger = \Drupal::logger('bt_events');
+          $logger->log(
+            $level,
+            'Event Node: ' . $node->nid->value . '. Was unpublished because it\'s dates have passed.');
+        }
+      }
+    }
+  }
+}

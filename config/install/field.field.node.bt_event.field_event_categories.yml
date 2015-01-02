@@ -1,0 +1,23 @@
+uuid: 2959a29d-1fe5-4095-a262-982ffaee2096
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_categories
+    - node.type.bt_event
+  module:
+    - taxonomy
+id: node.bt_event.field_event_categories
+field_name: field_event_categories
+entity_type: node
+bundle: bt_event
+label: 'Event Categories'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

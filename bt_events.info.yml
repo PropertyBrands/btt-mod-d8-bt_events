@@ -1,0 +1,10 @@
+name: Bluetent Events
+description: Provides an events content type.
+package: Bluetent Module Suite
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - node
+  - block
+configure: bt_events.config

@@ -1,0 +1,6 @@
+bt_events.config:
+  title: 'Bluetent: Events Configuration'
+  parent: system.admin_config_content
+  description: 'Configure the Events content type.'
+  route_name: bt_events.config
+  weight: 999
